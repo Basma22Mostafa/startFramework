@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import style from "../Portfolio/Portfolio.module.css"
 import port1 from "../../assets/imgs/portfolio/port1.png"
 import port2 from "../../assets/imgs/portfolio/port2.png"
@@ -6,6 +7,7 @@ import port3 from "../../assets/imgs/portfolio/port3.png"
 
 
 export default function Portfolio() {
+  let images=[port1,port2,port3,port1,port2,port3];
   return (
     <>
     <div className={`${style.portfolio} bg-light pb-5`}>
@@ -17,68 +19,23 @@ export default function Portfolio() {
              </div>   
             <div className='container mt-4'>   
             <div className='row gy-4'>
-              <div className='col-lg-4 col-md-6'>
+              {
+                images.map((image)=>{
+                  return(
+                    <div className='col-lg-4 col-md-6'>
                 <div className={`${style.card} card position-relative`}>
-                   <img src={port1} alt="" className={`rounded-3`}/>
-                   <div className={`${style.layer} rounded-3 position-absolute top-0 left-0 right-0 w-100 h-100`} >
-                    <div className={`${style.overlay} text-center text-light fs-1`}>
-                          <i className="fa-solid fa-plus"></i>
-                    </div>
-                </div>
-
-                </div>
-                
-              </div>
-              <div className='col-lg-4 col-md-6'>
-                <div className={`${style.card} card position-relative`}>
-                   <img src={port2} alt="" className='rounded-3' />
+                   <img src={image} alt="" className={`rounded-3`}/>
                    <div className={`${style.layer} rounded-3 position-absolute top-0 left-0 right-0 w-100 h-100`} >
                     <div className={`${style.overlay} text-center text-light fs-1`}>
                           <i className="fa-solid fa-plus"></i>
                     </div>
                 </div>
                 </div>
-              </div>
-              <div className='col-lg-4 col-md-6'>
-                <div className={`${style.card} card position-relative`}>
-                   <img src={port3} alt="" className='rounded-3' />
-                   <div className={`${style.layer} rounded-3 position-absolute top-0 left-0 right-0 w-100 h-100`} >
-                    <div className={`${style.overlay} text-center text-light fs-1`}>
-                          <i className="fa-solid fa-plus"></i>
-                    </div>
-                </div>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6'>
-                <div className={`${style.card} card position-relative`}>
-                   <img src={port1} alt="" className='rounded-3' />
-                   <div className={`${style.layer} rounded-3 position-absolute top-0 left-0 right-0 w-100 h-100`} >
-                    <div className={`${style.overlay} text-center text-light fs-1`}>
-                          <i className="fa-solid fa-plus"></i>
-                    </div>
-                </div>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6'>
-                <div className={`${style.card} card position-relative`}>
-                   <img src={port2} alt="" className='rounded-3' />
-                   <div className={`${style.layer} rounded-3 position-absolute top-0 left-0 right-0 w-100 h-100`} >
-                    <div className={`${style.overlay} text-center text-light fs-1`}>
-                          <i className="fa-solid fa-plus"></i>
-                    </div>
-                </div>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6'>
-                <div className={`${style.card} card position-relative`}>
-                   <img src={port3} alt=""  className='rounded-3'/>
-                   <div className={`${style.layer} rounded-3 position-absolute top-0 left-0 right-0 w-100 h-100`} >
-                    <div className={`${style.overlay} text-center text-light fs-1`}>
-                          <i className="fa-solid fa-plus"></i>
-                    </div>
-                </div>
-                </div>
-              </div>
+                   </div>
+                  ) 
+                })
+              }
+              
             </div>
       </div>
     </div>
